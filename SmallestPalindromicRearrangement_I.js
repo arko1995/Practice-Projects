@@ -14,7 +14,6 @@ const smallestPalindrome = function (s) {
 
     if (count > 0) {
       left.push(char.repeat(count));
-      console.log(left);
     }
     if (freq[i] % 2 === 1) {
       middle = char;
