@@ -4,7 +4,6 @@ const minSubArrayLen = function (target, nums) {
   let currentSum = 0;
 
   for (let j = 0; j < nums.length; j++) {
-    let length = 0;
     currentSum += nums[j];
 
     while (currentSum >= target) {
