@@ -1,17 +1,17 @@
 const maximumLengthSubstring = function (s) {
   let left = 0;
 
-  let chars = new Set();
+  let chars = new Map();
 
   let maxLength = 0;
 
-  for (let right = 1; right < s.length; right++) {
-    while (chars.has(s[right])) {
-      chars.delete(s[left]);
+  for (let right = 0; right < s.length; right++) {
+    chars.set(s[right], (chars.get(s[right]) || 0) + 1);
+
+    while (chars.get(s[right]) > 2) {
+      chars.set(s[left], chars.get(s[left]) - 1);
       left++;
     }
-
-    chars.add(s[right]);
 
     maxLength = Math.max(maxLength, right - left + 1);
   }
