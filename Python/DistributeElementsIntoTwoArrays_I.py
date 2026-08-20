@@ -6,7 +6,7 @@ class Solution:
 
             i = 2
             
-            for i in range(2, n)
+            for i in range(2, n):
 
                 if arr1[-1] > arr2[-1]:
                      arr1.append(nums[i])
