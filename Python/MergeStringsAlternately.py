@@ -12,6 +12,7 @@ class Solution:
                 result += word2[i]
 
         return result
+    
 solution = Solution()
 
 
