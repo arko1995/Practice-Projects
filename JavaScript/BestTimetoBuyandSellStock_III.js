@@ -1,24 +1,16 @@
 const maxProfit = function (prices) {
-  if (!prices.every(Number.isFinite)) return 0;
+  let buy1 = -Infinity;
+  let sell1 = 0;
+  let buy2 = -Infinity;
+  let sell2 = 0;
 
-  function dp(day, holding, transactionsLeft) {
-    if (day === prices.length) return 0;
-    if (transactionsLeft === 0) return 0;
-
-    if (holding) {
-      const skip = dp(day + 1, true, transactionsLeft);
-      const sell = prices[day] + dp(day + 1, false, transactionsLeft - 1);
-
-      return Math.max(skip, sell);
-    } else {
-      const skip = dp(day + 1, false, transactionsLeft);
-      const buy = -prices[day] + dp(day + 1, true, transactionsLeft);
-
-      return Math.max(skip, buy);
-    }
+  for (let price of prices) {
+    buy1 = Math.max(buy1, -price);
+    sell1 = Math.max(sell1, buy1 + price);
+    buy2 = Math.max(buy2, sell1 - price);
+    sell2 = Math.max(sell2, buy2 + price);
   }
-
-  return dp(0, false, 2);
+  return sell2;
 };
 
 maxProfit([3, 3, 5, 0, 0, 3, 1, 4]);
