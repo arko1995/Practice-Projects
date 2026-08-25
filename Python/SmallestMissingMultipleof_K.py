@@ -9,7 +9,7 @@ class Solution:
 
             if multiple not in nums_set:
                 return multiple
-                break
+                
 
             positive_int += 1
            
