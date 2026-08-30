@@ -5,7 +5,7 @@ class Solution:
 
         for ch in s:
             count[ord(ch) - ord('a')] += 1
-
+        print(count)
         for ch in target:
             count[ord(ch) - ord("a")] -= 1
 
